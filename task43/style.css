@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: '微软雅黑';
+    font-size: 1rem;
+}
+body{
+    width: 100%;
+    background-color: #e8e8e8;
+    overflow: hidden;
+}
+.echelon{
+    margin: 10%;
+}
+.fir{
+    position: absolute;
+    width: 180px;
+    height: 180px;
+}
+.sec{
+    position: absolute;
+    -webkit-clip-path: polygon(25% 0%,75% 100%,100% 100%,100% 0%);
+    width: 180px;
+    height: 180px;
+}
