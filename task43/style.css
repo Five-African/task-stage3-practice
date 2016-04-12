@@ -9,17 +9,73 @@ body{
     background-color: #e8e8e8;
     overflow: hidden;
 }
-.echelon{
-    margin: 10%;
+.one{
+    display: inline-block;
 }
-.fir{
+.echelon{
+    width: 180px;
+    height: 180px;
+    display: inline-block;
+}
+.echelon .fir{
     position: absolute;
     width: 180px;
     height: 180px;
 }
-.sec{
+.echelon .sec{
     position: absolute;
     -webkit-clip-path: polygon(25% 0%,75% 100%,100% 100%,100% 0%);
+    width: 180px;
+    height: 180px;
+}
+.threePic{
+    width: 180px;
+    height: 180px;
+    display: inline-block;
+}
+.threePic .fir{
+    position: absolute;
+    width: 180px;
+    height: 180px;
+}
+.threePic .sec{
+    position: absolute;
+    -webkit-clip-path: polygon(50% 0%,100% 0,100% 49%,50% 49%);
+    width: 180px;
+    height: 180px;
+}
+.threePic .thi{
+    position: absolute;
+    -webkit-clip-path: polygon(50% 51%, 50% 100%, 100% 100%, 100% 51%);
+    width: 180px;
+    height: 180px;
+}
+.fourPic{
+    display: inline-block;
+    width: 180px;
+    height: 180px;
+}
+.fourPic .fir{
+    position: absolute;
+    -webkit-clip-path: polygon(0% 0%,49% 0,49% 49%,0% 49%);
+    width: 180px;
+    height: 180px;
+}
+.fourPic .sec{
+    position: absolute;
+    -webkit-clip-path: polygon(0% 51%,49% 51%,49% 100%,0% 100%);
+    width: 180px;
+    height: 180px;
+}
+.fourPic .thi{
+    position: absolute;
+    -webkit-clip-path: polygon(50% 51%, 50% 100%, 100% 100%, 100% 51%);
+    width: 180px;
+    height: 180px;
+}
+.fourPic .fou{
+    position: absolute;
+    -webkit-clip-path: polygon(50% 0%,100% 0,100% 49%,50% 49%);
     width: 180px;
     height: 180px;
 }
