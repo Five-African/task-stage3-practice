@@ -15,7 +15,7 @@ var Sticky = (function() {
         node.dataset.stickyStartPos = node.getBoundingClientRect().top - stickyOffset + offset;
         node.dataset.stickyHeight = node.clientHeight;
         stickyOffset = node.clientHeight;
-        node.dataset.stickyEndPos = Math.min(nextNode ? nextNode.getBoundingClientRect().top : 16777215, node.parentNode.getBoundingClientRect().bottom) - stickyOffset + offset;
+        node.dataset.stickyEndPos = Math.min(nextNode ? nextNode.getBoundingClientRect().top - stickyOffset : 16777215, node.parentNode.getBoundingClientRect().bottom) + offset;
       }
 
       window.addEventListener('scroll', function() {
