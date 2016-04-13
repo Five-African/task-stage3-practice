@@ -3,18 +3,19 @@ var Sticky = (function() {
 
   return {
     init: function() {
+      var offset = window.scrollY;
       stickies = [].slice.call(document.querySelectorAll('.sticky'));
       if (stickies.length == 0) return;
 
       var length = stickies.length;
-      var magic = 0;
+      var stickyOffset = 0;
       for (var i = 0; i < length; i++) {
         var node = stickies[i];
         var nextNode = stickies[i + 1];
-        node.dataset.stickyStartPos = node.getBoundingClientRect().top - magic;
-        node.dataset.stickyEndPos = Math.min(nextNode ? nextNode.getBoundingClientRect().top : 16777215, node.parentNode.getBoundingClientRect().bottom) - magic;
+        node.dataset.stickyStartPos = node.getBoundingClientRect().top - stickyOffset + offset;
         node.dataset.stickyHeight = node.clientHeight;
-        magic = node.clientHeight;
+        stickyOffset = node.clientHeight;
+        node.dataset.stickyEndPos = Math.min(nextNode ? nextNode.getBoundingClientRect().top : 16777215, node.parentNode.getBoundingClientRect().bottom) - stickyOffset + offset;
       }
 
       window.addEventListener('scroll', function() {
@@ -27,6 +28,7 @@ var Sticky = (function() {
             if (node.className.indexOf(' fixed') < 0) {
               node.className += " fixed";
             }
+            node.style.top = "";
             if (nextNode) {
               var nextPos = nextNode.getBoundingClientRect().top - node.dataset.stickyHeight;
               if (nextPos < 0) {
@@ -37,10 +39,7 @@ var Sticky = (function() {
           else {
             if (node.className.indexOf(' fixed') >= 0) {
               node.className = node.className.replace(' fixed', '');
-
-              if (!prevNode || (prevNode && prevNode.getBoundingClientRect().top + +prevNode.dataset.stickyHeight < 0)) {
-                node.style.top = "";
-              }
+              node.style.top = "";
             }
           }
         }
@@ -49,4 +48,6 @@ var Sticky = (function() {
   }
 })();
 
-Sticky.init();
+window.addEventListener('load', function() {
+  Sticky.init();
+});
