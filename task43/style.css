@@ -7,75 +7,78 @@
 body{
     width: 100%;
     background-color: #e8e8e8;
-    overflow: hidden;
+    
 }
-.one{
-    display: inline-block;
+img{
+    object-fit: cover;
 }
-.echelon{
-    width: 180px;
-    height: 180px;
-    display: inline-block;
+.albumPic{
+    width: 1920px;
+    height: 1080px;
+    display: block;
 }
-.echelon .fir{
+
+.albumPic > img:first-child:nth-last-child(2) {
     position: absolute;
-    width: 180px;
-    height: 180px;
 }
-.echelon .sec{
-    position: absolute;
+.albumPic > img:first-child:nth-last-child(2) ~ img:nth-of-type(2) {
     -webkit-clip-path: polygon(25% 0%,75% 100%,100% 100%,100% 0%);
-    width: 180px;
-    height: 180px;
 }
-.threePic{
-    width: 180px;
-    height: 180px;
-    display: inline-block;
-}
-.threePic .fir{
+
+
+
+.albumPic > img:first-child:nth-last-child(3) {
     position: absolute;
-    width: 180px;
-    height: 180px;
+    width: 50%;
+    height: 100%;
 }
-.threePic .sec{
+.albumPic > img:first-child:nth-last-child(3) ~ img:nth-of-type(2) {
     position: absolute;
-    -webkit-clip-path: polygon(50% 0%,100% 0,100% 49%,50% 49%);
-    width: 180px;
-    height: 180px;
+    width: 50%;
+    height: 50%;
 }
-.threePic .thi{
+.albumPic > img:first-child:nth-last-child(3) ~ img:nth-of-type(3) {
     position: absolute;
-    -webkit-clip-path: polygon(50% 51%, 50% 100%, 100% 100%, 100% 51%);
-    width: 180px;
-    height: 180px;
+    width: 50%;
+    height: 50%;
 }
-.fourPic{
-    display: inline-block;
-    width: 180px;
-    height: 180px;
-}
-.fourPic .fir{
+
+
+
+
+.albumPic > img:first-child:nth-last-child(4) {
     position: absolute;
-    -webkit-clip-path: polygon(0% 0%,49% 0,49% 49%,0% 49%);
-    width: 180px;
-    height: 180px;
+    
 }
-.fourPic .sec{
+.albumPic > img:first-child:nth-last-child(4) ~ img:nth-of-type(2) {
     position: absolute;
-    -webkit-clip-path: polygon(0% 51%,49% 51%,49% 100%,0% 100%);
-    width: 180px;
-    height: 180px;
+    -webkit-clip-path: polygon(0% 0%,50% 0,50% 50%,0% 50%);
 }
-.fourPic .thi{
+.albumPic > img:first-child:nth-last-child(4) ~ img:nth-of-type(3) {
     position: absolute;
-    -webkit-clip-path: polygon(50% 51%, 50% 100%, 100% 100%, 100% 51%);
-    width: 180px;
-    height: 180px;
+    -webkit-clip-path: polygon(50% 50%, 50% 100%, 100% 100%, 100% 50%);
 }
-.fourPic .fou{
+.albumPic > img:first-child:nth-last-child(4) ~ img:nth-of-type(4) {
+    -webkit-clip-path: polygon(50% 0%,100% 0,100% 50%,50% 50%);
+}
+
+.albumPic > img:first-child:nth-last-child(5) {
     position: absolute;
-    -webkit-clip-path: polygon(50% 0%,100% 0,100% 49%,50% 49%);
-    width: 180px;
-    height: 180px;
+}
+.albumPic > img:first-child:nth-last-child(5) ~ img:nth-of-type(2) {
+    position: absolute;
+    -webkit-clip-path: polygon(0% 0%,50% 0,50% 50%,0% 50%);
+}
+.albumPic > img:first-child:nth-last-child(5) ~ img:nth-of-type(3) {
+    position: absolute;
+    -webkit-clip-path: polygon(50% 50%, 50% 100%, 100% 100%, 100% 50%);
+    object-fit: fill;
+}
+.albumPic > img:first-child:nth-last-child(5) ~ img:nth-of-type(4) {
+    position: absolute;
+    -webkit-clip-path: polygon(50% 0%,100% 0,100% 50%,50% 50%);
+}
+.albumPic > img:first-child:nth-last-child(5) ~ img:nth-of-type(5) {
+    
+    -webkit-clip-path: polygon(0% 50%,0 100%,50% 100%,50% 50%);
 }
