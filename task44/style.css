@@ -1,0 +1,27 @@
+html,body{
+	height: 100%;
+	width: 100%;
+    background-color: #eee;
+}
+#container{
+    width:80%;
+    text-align: center;
+}
+.column{
+    display: inline-block;
+    width:210px;
+    vertical-align: top;
+    padding:0 10px;
+}
+.column .panel{
+        padding: 10px 0 10px 0;
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        text-decoration: none;
+}
+img{
+    width: 190px;
+}
