@@ -5,6 +5,7 @@ var tpl = {
         temp(src) {
             return `
                     <img src="i/${src}" alt="waterfall"/>
+                    
                 </article>
 
     `;
@@ -86,12 +87,24 @@ var waterFall = (function() {
             return this;
         }
         //设置滑动加载
-    var isLoad=function() { //是否可以进行加载
+    var isLoad = function() { //是否可以进行加载
         var scrollTop = document.documentElement.scrollTop || document.body.scrollTop,
             wholeHeight = document.documentElement.clientHeight || document.body.clientHeight,
             point = scrollTop + wholeHeight; //页面底部距离header的距离
         var lastHei = Math.min.apply(null,arrHeight);
         return (lastHei < point) ? true : false;
+    }
+    
+    var fullScreenPic = function() {
+        for(var i = 0; i < $("img").length; i++){
+            $("img")[i].onclick = function(){
+                imgId = this.src.match(/(\d*).jpg/)[1];
+                console.log(imgId);
+                $(".full-screen")[0].src = "i/" + imgId + ".jpg"; 
+                $(".full-screen-bg")[0].style.display = "block";
+                $("body")[0].overflow = "hidden";
+            }
+        }
     }
 
     var dealScroll = (function(){
@@ -103,11 +116,13 @@ var waterFall = (function() {
     				html = tpl.temp(data.src); //获得数据然后添加模板
     				createArticle(html);
     			}
+                fullScreenPic();
+                
     		}
     		return this;
     	}
     })();
-    var resize = (function(){
+    /*var resize = (function(){
     	window.onresize = ()=>{resize();};
     	var flag;
     	return function(){
@@ -115,7 +130,7 @@ var waterFall = (function() {
     		flag = setTimeout(()=>{onload();},500);
     		return this;
     	}
-    })();
+    })();*/   
     var dataInt = [{
         'src': '1.jpg'
     }, {
@@ -160,9 +175,22 @@ var waterFall = (function() {
     return {
         onload,
         dealScroll,
-        resize
+        //resize
     }
 })();
 window.onload = function() {
     waterFall.onload();
 }
+document.onkeydown = function(e) {
+    e = e || window.event;
+    var kcode = e.which || e.keycode;
+    if(kcode == 27 && $(".full-screen-bg")[0].display!="none"){
+        $(".full-screen-bg")[0].style.display = "none";
+    } 
+}
+document.onmouseup = function() {
+    if($(".full-screen-bg")[0].display!="none"){
+        $(".full-screen-bg")[0].style.display = "none";
+    }
+}
+
